@@ -1,6 +1,7 @@
-web:
+ontask_b:
   restart: always
-  build: ./web
+  build: ./ontask_b/src
+#  build: ./web
   expose:
     - "8000"
   links:
@@ -12,7 +13,8 @@ web:
   env_file: .env
   environment:
     DEBUG: 'true'
-  command: /usr/local/bin/gunicorn docker_django.wsgi:application -w 2 -b :8000
+  command: /usr/local/bin/gunicorn ontask.wsgi:application -w 2 -b :8000
+  #command: /usr/local/bin/gunicorn docker_django.wsgi:application -w 2 -b :8000
 
 nginx:
   restart: always
@@ -22,9 +24,9 @@ nginx:
   volumes:
     - /www/static
   volumes_from:
-    - web
+    - ontask_b
   links:
-    - web:web
+    - ontask_b:ontask_b
 
 postgres:
   restart: always
