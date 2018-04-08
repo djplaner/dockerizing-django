@@ -1,19 +1,17 @@
-## Django Development With Docker Compose and Machine
+## Docker version of OnTask
 
-Featuring:
+This project aims to create a version of [OnTask](https://ontasklearning.org/) (in particular the [python version](https://github.com/abelardopardo/ontask_b) that runs as a Docker container/compose. 
 
-- Docker v1.10.3
-- Docker Compose v1.6.2
-- Docker Machine v0.6.0
-- Python 3.5
+Based on [this repo](https://github.com/realpython/dockerizing-django) that scaffolds the "dockerising" of Django app development.
 
-Blog post -> https://realpython.com/blog/python/django-development-with-docker-compose-and-machine/
 
 ### OS X Instructions
 
-1. Start new machine - `docker-machine create -d virtualbox dev;`
-1. Configure your shell to use the new machine environment - `eval $(docker-machine env dev)`
 1. Build images - `docker-compose build`
 1. Start services - `docker-compose up -d`
-1. Create migrations - `docker-compose run web /usr/local/bin/python manage.py migrate`
+1. ??configure??
+> - `docker-compose run web /usr/local/bin/python manage.py migrate`
 1. Grab IP - `docker-machine ip dev` - and view in your browser
+1. Navigate browser to host 0.0.0.0
+1. Use OnTask
+1. `docker-compose down`
